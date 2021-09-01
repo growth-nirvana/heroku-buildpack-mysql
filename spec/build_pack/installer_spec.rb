@@ -30,21 +30,11 @@ describe BuildPack::Installer do
 
   context "when cache does not have client " do
     it "downloads and installs available client" do
-      stub_request_to_debian_base_url(Helpers::RESPONSE_WITH_SUITABLE_CLIENTS)
       stub_request_for_expected_package
 
       BuildPack::Installer.install(BUILD_DIR, CACHE_DIR)
 
       expect(File.exists?("#{MYSQL_INSTALLED_BINARY}")).to be
     end
-
-    it "it does not attempt to install when there are no available clients" do
-      stub_request_to_debian_base_url(Helpers::RESPONSE_WITHOUT_SUITABLE_CLIENTS)
-
-      expect{BuildPack::Installer.install(BUILD_DIR, CACHE_DIR)}.to raise_error(SystemExit)
-
-      expect(File.exists?("#{MYSQL_INSTALLED_BINARY}")).not_to be
-    end
-
   end
 end
