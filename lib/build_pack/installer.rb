@@ -7,7 +7,7 @@ module BuildPack
       def install(build_dir, cache_dir)
         init_paths(build_dir, cache_dir)
         make_dirs
-        Downloader.download_latest_client_to(@mysql_pkg) unless cached?
+        Downloader.download_latest_client_to(@mysql_pkg)
         if client_exists?
           install_client and cleanup
         else
