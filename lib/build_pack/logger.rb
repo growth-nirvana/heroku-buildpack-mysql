@@ -5,7 +5,7 @@ module BuildPack
     end
 
     def self.log_header(message)
-      puts "-----> #{message}"
+      puts "-----> #{message} (mysql-buildpack-#{VERSION})"
     end
   end
 end
