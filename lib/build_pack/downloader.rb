@@ -2,7 +2,7 @@ require 'net/http'
 
 module BuildPack
   class Downloader
-    CLIENT_PKG = "#{File.dirname(__FILE__)}/../../dist/mysql-client_5.7.34-1debian10_amd64.deb"
+    CLIENT_PKG = "#{File.dirname(__FILE__)}/../../dist/mysql-community-client_5.7.34-1debian10_amd64.deb"
 
     class << self
       def download_latest_client_to(path)
